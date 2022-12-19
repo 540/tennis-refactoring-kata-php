@@ -1,7 +1,5 @@
 <?php
 
-namespace Feature;
-
 interface TennisGame
 {
     /**
