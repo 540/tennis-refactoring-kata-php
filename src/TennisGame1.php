@@ -9,19 +9,21 @@ class TennisGame1 implements TennisGame
     private string $player1Name = '';
     private string $player2Name = '';
 
+    //public function __construct(private readonly string $player1Name, private readonly string $player2Name)
+    //{
+    //}
+
     public function __construct($player1Name, $player2Name)
     {
         $this->player1Name = $player1Name;
         $this->player2Name = $player2Name;
     }
 
-    public function wonPoint($playerName): void
+    public function wonPoint(string $playerName): void
     {
-        if ('player1' == $playerName) {
-            $this->player1Score++;
-        } else {
-            $this->player2Score++;
-        }
+        $this->player1Name == $playerName
+            ? $this->player1Score++
+            : $this->player2Score++;
     }
 
     public function getScore(): string
@@ -45,13 +47,13 @@ class TennisGame1 implements TennisGame
         } elseif ($this->player1Score >= 4 || $this->player2Score >= 4) {
             $minusResult = $this->player1Score - $this->player2Score;
             if ($minusResult == 1) {
-                $score = "Advantage player1";
+                $score = "Advantage " . $this->player1Name;
             } elseif ($minusResult == -1) {
-                $score = "Advantage player2";
+                $score = "Advantage " . $this->player2Name;
             } elseif ($minusResult >= 2) {
-                $score = "Win for player1";
+                $score = "Win for " . $this->player1Name;
             } else {
-                $score = "Win for player2";
+                $score = "Win for " . $this->player2Name;
             }
         } else {
             for ($i = 1; $i < 3; $i++) {
